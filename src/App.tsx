@@ -292,7 +292,7 @@ function App() {
             Entre em contato conosco e descubra como podemos transformar suas ideias em soluções digitais de alta performance.
           </p>
           <a
-            href="https://wa.me/5511961728584?text=Olá!%20Gostaria%20de%20conhecer%20os%20serviços%20da%20KDEV"
+            href="https://wa.me/5527981911375?text=Olá!%20Gostaria%20de%20conhecer%20os%20serviços%20da%20KDEV"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-green-500 text-white px-10 py-5 rounded-lg text-lg font-semibold hover:bg-green-600 transition-all hover:shadow-xl hover:scale-105"
