@@ -1,13 +1,13 @@
 import { Menu, X, Code, Zap, Layers, ArrowRight, Check, MessageCircle, Quote, Star, ChevronRight, Rocket, Shield, Users, TrendingUp, Globe, Palette, ArrowLeft } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { 
-  IconClock, 
-  IconMail, 
+import {
+  IconClock,
+  IconMail,
   IconPhone,
   IconBrandWhatsapp,
   IconMessageChatbot,
-  IconBrandInstagram, 
+  IconBrandInstagram,
 } from '@tabler/icons-react';
 import { InteractiveCard } from './components/InteractiveCard';
 import { MagneticButton } from './components/MagneticButton';
@@ -53,17 +53,17 @@ function HomePage({ onNavigateToService }) {
       })
       .then(
         () => {
-          setFormStatus({ 
-            type: 'success', 
-            message: 'Mensagem enviada com sucesso! Entraremos em contato em breve.' 
+          setFormStatus({
+            type: 'success',
+            message: 'Mensagem enviada com sucesso! Entraremos em contato em breve.'
           });
           setIsSubmitting(false);
           form.current.reset();
         },
         (error) => {
-          setFormStatus({ 
-            type: 'error', 
-            message: 'Erro ao enviar mensagem. Tente novamente ou use o WhatsApp.' 
+          setFormStatus({
+            type: 'error',
+            message: 'Erro ao enviar mensagem. Tente novamente ou use o WhatsApp.'
           });
           setIsSubmitting(false);
           console.log('FAILED...', error.text);
@@ -305,7 +305,7 @@ function HomePage({ onNavigateToService }) {
                   <IconBrandWhatsapp className="h-5 w-5" />
                   WhatsApp
                 </a>
-                
+
                 <a
                   href="mailto:kdevprofissional@gmail.com"
                   onClick={() => setMobileMenuOpen(false)}
@@ -339,36 +339,39 @@ function HomePage({ onNavigateToService }) {
               <div className="pt-8 border-t border-gray-200 mt-8">
                 <h4 className="font-bold text-gray-900 mb-4">Siga-nos</h4>
                 <div className="flex gap-3">
-                  <button 
-                    onClick={() => {
-                      handleSocialClick('whatsapp');
-                      setMobileMenuOpen(false);
-                    }}
-                    className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-green-600 hover:text-white transition-colors"
-                    title="WhatsApp"
-                  >
-                    <IconBrandWhatsapp className="h-5 w-5" />
-                  </button>
-                  <button 
+                  <button
                     onClick={() => {
                       handleSocialClick('instagram');
                       setMobileMenuOpen(false);
                     }}
-                    className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors"
+                    className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center
+             hover:bg-pink-600 hover:text-white transition-all duration-300
+             shadow-sm hover:shadow-md hover:-translate-y-1"
                     title="Instagram"
                   >
-                    <IconBrandInstagram className="h-5 w-5" />
+                    <IconBrandInstagram
+                      className="h-6 w-6 transition-colors duration-300"
+                      style={{ color: '#E1306C' }}
+                    />
                   </button>
-                  <button 
+
+                  <button
                     onClick={() => {
                       handleSocialClick('linkedin');
                       setMobileMenuOpen(false);
                     }}
-                    className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-700 hover:text-white transition-colors"
+                    className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center
+             hover:bg-blue-700 hover:text-white transition-all duration-300
+             shadow-sm hover:shadow-md hover:-translate-y-1"
                     title="LinkedIn"
                   >
-                    <Users className="h-5 w-5" />
+                    <Users
+                      className="h-6 w-6 transition-colors duration-300"
+                      style={{ color: '#0A66C2' }}
+                    />
                   </button>
+
+
                 </div>
               </div>
             </div>
@@ -377,9 +380,8 @@ function HomePage({ onNavigateToService }) {
       )}
 
       {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' : 'bg-transparent'
-      }`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' : 'bg-transparent'
+        }`}>
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center gap-3">
@@ -398,17 +400,15 @@ function HomePage({ onNavigateToService }) {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className={`transition-colors font-medium relative group ${
-                    isScrolled ? 'text-gray-700 hover:text-green-600' : 'text-white hover:text-green-300'
-                  }`}
+                  className={`transition-colors font-medium relative group ${isScrolled ? 'text-gray-700 hover:text-green-600' : 'text-white hover:text-green-300'
+                    }`}
                 >
                   {item.charAt(0).toUpperCase() + item.slice(1)}
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full ${
-                    isScrolled ? 'bg-green-600' : 'bg-green-300'
-                  }`}></span>
+                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? 'bg-green-600' : 'bg-green-300'
+                    }`}></span>
                 </button>
               ))}
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 font-semibold"
               >
@@ -419,9 +419,8 @@ function HomePage({ onNavigateToService }) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`md:hidden p-2 rounded-lg transition-colors z-[80] relative ${
-                isScrolled || mobileMenuOpen ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-              }`}
+              className={`md:hidden p-2 rounded-lg transition-colors z-[80] relative ${isScrolled || mobileMenuOpen ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                }`}
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -435,14 +434,14 @@ function HomePage({ onNavigateToService }) {
         <div className="absolute top-0 left-0 w-72 h-72 bg-green-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute top-0 right-0 w-72 h-72 bg-green-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-emerald-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-        
+
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8 border border-white/20">
               <Rocket className="h-4 w-4" />
               <span className="text-sm font-medium">Transformando ideias em realidade digital</span>
             </div>
-            
+
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               Soluções Digitais{' '}
               <span className="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
@@ -452,7 +451,7 @@ function HomePage({ onNavigateToService }) {
             <p className="text-xl sm:text-2xl text-white mb-10 leading-relaxed max-w-3xl mx-auto">
               Desenvolvemos websites de alto desempenho e automações inteligentes que impulsionam seu negócio com tecnologia de ponta.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={() => scrollToSection('contact')}
@@ -523,7 +522,7 @@ function HomePage({ onNavigateToService }) {
                         </div>
                       ))}
                     </div>
-                    <button 
+                    <button
                       onClick={() => onNavigateToService(service.id)}
                       className="mt-6 flex items-center gap-2 text-green-600 font-semibold group-hover:gap-3 transition-all"
                     >
@@ -567,10 +566,10 @@ function HomePage({ onNavigateToService }) {
                 Sobre a <span className="bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">KDEV CodeLab</span>
               </h2>
               <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                Somos especialistas em transformar desafios complexos em soluções digitais elegantes e eficientes. 
+                Somos especialistas em transformar desafios complexos em soluções digitais elegantes e eficientes.
                 Combinamos tecnologia de ponta com design intuitivo para entregar resultados que superam expectativas.
               </p>
-              
+
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-gray-900">
                   Por que escolher a KDEV
@@ -598,7 +597,7 @@ function HomePage({ onNavigateToService }) {
                     </div>
                     <p className="text-green-100">Soluções otimizadas para máxima velocidade e eficiência</p>
                   </div>
-                  
+
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all">
                     <div className="flex items-center gap-3 mb-3">
                       <Shield className="h-6 w-6 text-white" />
@@ -606,7 +605,7 @@ function HomePage({ onNavigateToService }) {
                     </div>
                     <p className="text-green-100">Proteção de dados e conformidade com as melhores práticas</p>
                   </div>
-                  
+
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all">
                     <div className="flex items-center gap-3 mb-3">
                       <Users className="h-6 w-6 text-white" />
@@ -649,13 +648,13 @@ function HomePage({ onNavigateToService }) {
                     </div>
                     <Quote className="h-8 w-8 text-green-600 opacity-20 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  
+
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  
+
                   <p className="text-gray-700 mb-6 leading-relaxed italic">
                     "{testimonial.content}"
                   </p>
@@ -673,11 +672,11 @@ function HomePage({ onNavigateToService }) {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-2xl mb-6 backdrop-blur-sm">
               <IconMessageChatbot className="h-10 w-10 text-white" />
             </div>
-            
+
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               Pronto para <span className="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">transformar</span> seu negócio?
             </h2>
-            
+
             <p className="text-xl text-white mb-10 leading-relaxed max-w-2xl mx-auto">
               Vamos conversar sobre seu projeto e mostrar como podemos levar sua empresa para o próximo nível com tecnologia.
             </p>
@@ -687,11 +686,11 @@ function HomePage({ onNavigateToService }) {
             {/* Formulário de Contato */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
               <h3 className="text-2xl font-bold text-white mb-6">Envie sua mensagem</h3>
-              
+
               <form ref={form} onSubmit={sendEmail} className="space-y-6">
                 <div>
                   <label htmlFor="user_name" className="block text-sm font-medium text-green-100 mb-2">
-                    Nome Completo
+                    Nome 
                   </label>
                   <input
                     type="text"
@@ -745,11 +744,10 @@ function HomePage({ onNavigateToService }) {
                 </div>
 
                 {formStatus.message && (
-                  <div className={`p-4 rounded-lg ${
-                    formStatus.type === 'success' 
-                      ? 'bg-green-500/20 border border-green-400/30 text-green-100' 
-                      : 'bg-red-500/20 border border-red-400/30 text-red-100'
-                  }`}>
+                  <div className={`p-4 rounded-lg ${formStatus.type === 'success'
+                    ? 'bg-green-500/20 border border-green-400/30 text-green-100'
+                    : 'bg-red-500/20 border border-red-400/30 text-red-100'
+                    }`}>
                     {formStatus.message}
                   </div>
                 )}
@@ -859,28 +857,28 @@ function HomePage({ onNavigateToService }) {
                 Transformamos ideias em soluções digitais inteligentes. Desenvolvimento web, automação e inovação para seu negócio.
               </p>
               <div className="flex gap-4">
-                <button 
+                <button
                   onClick={() => handleSocialClick('whatsapp')}
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors cursor-pointer"
                   title="WhatsApp"
                 >
                   <IconBrandWhatsapp className="h-5 w-5" />
                 </button>
-                <button 
+                <button
                   onClick={() => handleSocialClick('email')}
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer"
                   title="E-mail"
                 >
                   <IconMail className="h-5 w-5" />
                 </button>
-                <button 
+                <button
                   onClick={() => handleSocialClick('linkedin')}
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer"
                   title="LinkedIn"
                 >
                   <Users className="h-5 w-5" />
                 </button>
-                <button 
+                <button
                   onClick={() => handleSocialClick('instagram')}
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-pink-600 transition-colors cursor-pointer"
                   title="Instagram"
@@ -889,12 +887,12 @@ function HomePage({ onNavigateToService }) {
                 </button>
               </div>
             </div>
-            
+
             <div>
               <h3 className="font-bold text-lg mb-4">Serviços</h3>
               <ul className="space-y-3 text-gray-400">
                 <li>
-                  <button 
+                  <button
                     onClick={() => handleServiceClick('web-development')}
                     className="hover:text-white transition-colors cursor-pointer text-left"
                   >
@@ -902,7 +900,7 @@ function HomePage({ onNavigateToService }) {
                   </button>
                 </li>
                 <li>
-                  <button 
+                  <button
                     onClick={() => handleServiceClick('automation')}
                     className="hover:text-white transition-colors cursor-pointer text-left"
                   >
@@ -910,7 +908,7 @@ function HomePage({ onNavigateToService }) {
                   </button>
                 </li>
                 <li>
-                  <button 
+                  <button
                     onClick={() => handleServiceClick('custom-solutions')}
                     className="hover:text-white transition-colors cursor-pointer text-left"
                   >
@@ -918,7 +916,7 @@ function HomePage({ onNavigateToService }) {
                   </button>
                 </li>
                 <li>
-                  <button 
+                  <button
                     onClick={() => handleServiceClick('consulting')}
                     className="hover:text-white transition-colors cursor-pointer text-left"
                   >
@@ -927,12 +925,12 @@ function HomePage({ onNavigateToService }) {
                 </li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="font-bold text-lg mb-4">Contato</h3>
               <ul className="space-y-3 text-gray-400">
                 <li>
-                  <button 
+                  <button
                     onClick={() => handleSocialClick('whatsapp')}
                     className="hover:text-white transition-colors cursor-pointer text-left"
                   >
@@ -940,7 +938,7 @@ function HomePage({ onNavigateToService }) {
                   </button>
                 </li>
                 <li>
-                  <button 
+                  <button
                     onClick={() => handleSocialClick('email')}
                     className="hover:text-white transition-colors cursor-pointer text-left"
                   >
@@ -948,7 +946,7 @@ function HomePage({ onNavigateToService }) {
                   </button>
                 </li>
                 <li>
-                  <button 
+                  <button
                     onClick={() => handleSocialClick('linkedin')}
                     className="hover:text-white transition-colors cursor-pointer text-left"
                   >
@@ -956,7 +954,7 @@ function HomePage({ onNavigateToService }) {
                   </button>
                 </li>
                 <li>
-                  <button 
+                  <button
                     onClick={() => handleSocialClick('instagram')}
                     className="hover:text-white transition-colors cursor-pointer text-left"
                   >
@@ -966,7 +964,7 @@ function HomePage({ onNavigateToService }) {
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
               © 2025 KDEV CodeLab. Todos os direitos reservados.
@@ -1004,7 +1002,7 @@ function ServicePage({ service, onBack }) {
                 KDEV CodeLab
               </span>
             </div>
-            
+
             <button
               onClick={onBack}
               className="flex items-center gap-2 text-gray-700 hover:text-green-600 transition-colors font-semibold"
@@ -1025,15 +1023,15 @@ function ServicePage({ service, onBack }) {
                 <Icon className="h-5 w-5" />
                 <span className="text-sm font-medium">Serviço</span>
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                 {service.title}
               </h1>
-              
+
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {service.fullDescription}
               </p>
-              
+
               <div className="flex flex-wrap gap-3 mb-8">
                 {service.technologies.map((tech, index) => (
                   <span
@@ -1044,7 +1042,7 @@ function ServicePage({ service, onBack }) {
                   </span>
                 ))}
               </div>
-              
+
               <a
                 href="https://wa.me/5527981911375?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20desenvolvimento%20web"
                 target="_blank"
@@ -1055,7 +1053,7 @@ function ServicePage({ service, onBack }) {
                 Solicitar Orçamento
               </a>
             </div>
-            
+
             <div className="flex-1">
               <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-8 shadow-2xl">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
@@ -1122,7 +1120,7 @@ function ServicePage({ service, onBack }) {
           <p className="text-xl text-gray-300 mb-10 leading-relaxed">
             Vamos transformar sua ideia em uma solução digital de sucesso
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="https://wa.me/5527981911375?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço"
@@ -1133,7 +1131,7 @@ function ServicePage({ service, onBack }) {
               <IconBrandWhatsapp className="h-6 w-6" />
               Fale conosco via WhatsApp
             </a>
-            
+
             <button
               onClick={onBack}
               className="border-2 border-white/30 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
