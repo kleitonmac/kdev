@@ -48,7 +48,7 @@ function HomePage({ onNavigateToService }) {
     setFormStatus({ type: '', message: '' });
 
     emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
+      .sendForm('YOUR__ID', 'YOUR_TEMPLATE_ID', form.current, {
         publicKey: 'YOUR_PUBLIC_KEY',
       })
       .then(
@@ -396,7 +396,7 @@ function HomePage({ onNavigateToService }) {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              {['inicio', 'services', 'about', 'depoimentos'].map((item) => (
+              {['inicio', 'servicos', 'sobre', 'depoimentos'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
