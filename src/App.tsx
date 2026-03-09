@@ -274,8 +274,8 @@ function HomePage({ onNavigateToService }) {
               <div className="space-y-1 mb-8">
                 {[
                   { id: 'inicio', label: 'Início', icon: Rocket },
-                  { id: 'services', label: 'Serviços', icon: Code },
-                  { id: 'about', label: 'Sobre', icon: Shield },
+                  { id: 'servicos', label: 'Serviços', icon: Code },
+                  { id: 'sobre', label: 'Sobre', icon: Shield },
                   { id: 'depoimentos', label: 'Depoimentos', icon: Quote },
                   { id: 'contact', label: 'Contato', icon: MessageCircle }
                 ].map((item) => {
