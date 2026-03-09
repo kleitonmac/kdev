@@ -394,39 +394,88 @@ function HomePage({ onNavigateToService }) {
               </span>
             </div>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
-              {['inicio', 'servicos', 'sobre', 'depoimentos'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className={`transition-colors font-medium relative group ${isScrolled ? 'text-gray-700 hover:text-green-600' : 'text-white hover:text-green-300'
-                    }`}
-                >
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? 'bg-green-600' : 'bg-green-300'
-                    }`}></span>
-                </button>
-              ))}
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 font-semibold"
-              >
-                Contato
-              </button>
-            </div>
+            const menuItems = [
+  { id: 'inicio', label: 'Início', icon: Rocket },
+  { id: 'servicos', label: 'Serviços', icon: Code },
+  { id: 'sobre', label: 'Sobre', icon: Shield },
+  { id: 'depoimentos', label: 'Depoimentos', icon: Quote },
+  { id: 'contact', label: 'Contato', icon: MessageCircle }
+]
 
-            {/* Mobile Menu Button */}
+<header
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    isScrolled
+      ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
+      : 'bg-transparent'
+  }`}
+>
+  <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center h-20">
+
+      {/* LOGO */}
+      <div className="flex items-center gap-3">
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded-lg blur opacity-75"></div>
+          <Code className="relative h-8 w-8 text-white" />
+        </div>
+
+        <span className="text-2xl font-bold bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
+          KDEV CodeLab
+        </span>
+      </div>
+
+      {/* MENU DESKTOP */}
+      <div className="hidden md:flex items-center space-x-8">
+
+        {menuItems
+          .filter(item => item.id !== 'contact')
+          .map((item) => (
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`md:hidden p-2 rounded-lg transition-colors z-[80] relative ${isScrolled || mobileMenuOpen ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-                }`}
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`transition-colors font-medium relative group ${
+                isScrolled
+                  ? 'text-gray-700 hover:text-green-600'
+                  : 'text-white hover:text-green-300'
+              }`}
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {item.label}
+
+              <span
+                className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all group-hover:w-full ${
+                  isScrolled ? 'bg-green-600' : 'bg-green-300'
+                }`}
+              ></span>
+
             </button>
-          </div>
-        </nav>
-      </header>
+          ))}
+
+        <button
+          onClick={() => scrollToSection('contact')}
+          className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 font-semibold"
+        >
+          Contato
+        </button>
+
+      </div>
+
+      {/* MOBILE MENU BUTTON */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className={`md:hidden p-2 rounded-lg transition-colors z-[80] relative ${
+          isScrolled || mobileMenuOpen
+            ? 'text-gray-900 hover:bg-gray-100'
+            : 'text-white hover:bg-white/10'
+        }`}
+      >
+        {mobileMenuOpen
+          ? <X className="h-6 w-6" />
+          : <Menu className="h-6 w-6" />}
+      </button>
+
+    </div>
+  </nav>
+</header>
 
       {/* Hero Section */}
       <section id="inicio" className="pt-32 pb-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-green-900 to-green-800 text-white relative overflow-hidden">
