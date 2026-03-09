@@ -396,7 +396,7 @@ function HomePage({ onNavigateToService }) {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              {['inicio', 'serviços', 'sobre', 'depoimentos'].map((item) => (
+              {['inicio', 'services', 'about', 'depoimentos'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
